@@ -1,4 +1,4 @@
-# Lab 1 – Deploying, Exploring, and Exercising the Single-Tenant Monolith
+# Lab 1 – 배포 및 단일 테넌트 모놀리스 둘러보기
 
 앞으로 진행할 멀티테넌트 SaaS로의 마이그레이션 과정은 미리 만들어 둔 기본적인 모노리식 애플리케이션과 함께 시작합니다. 우리는 이를 위해 다른 조직에서도 많이 사용하는 일반적인 Java 기반 기술 스택을 바탕으로 만들었습니다. 이 예제는 Java를 사용하지만 Java에만 가능한 스택이 아닙니다. 예를 들어 .NET 모놀리식 애플리케이션 역시 우리가 만든 것과 매우 유사한 형태가 될 수 있을 것입니다.
 
@@ -10,7 +10,7 @@
 
 <b> Lab 1</b> 은 모놀리식 아키텍처 프로비저닝과 함께 시작됩니다. 배포된 아키텍처의 핵심 요소 중 일부와 기본 구성 요소를 간략하게 살펴 보겠습니다. 그런 다음 사용자가 실제로 애플리케이션을 사용하고 서버리스 마이크로서비스로 전환된 환경을 경험하는 과정을 이 모놀리식을 바탕으로 살펴볼 것 입니다.
 
-## What You'll Be Building
+## 구현할 사항
 
 이 실습의 목적은 서버리스 멀티테넌트 모델로 마이그레이션 할 모놀리스 애플리케이션 뿐만 아니라 기본 아키텍처를 살펴보는데 있습니다. 아래 내용은 이 실습에서 여러분이 수행할 단계들 입니다.
 
@@ -20,7 +20,7 @@
 
 이 첫 번째 실습은 애플리케이션을 모던 아키텍처로 변환하는 기본 바탕을 만드는 단계이므로 이 Lab 1이 끝난 후에도 사용자에게는 여전히 단일 테넌트, 모놀리식을 바탕으로 서비스될 것입니다.
 
-## Step-By-Step Guide
+## 단계별 가이드
 
 이 워크샵 셋업은 Java 기반의 단일 테넌트 모놀리식 애플리케이션을 위한 모든 인프라 자원을 프로비저닝 했습니다. 여기에는 VPC 및 기타 네트워킹 및 보안 구성 요소와 EC2 인스턴스 및 RDS 데이터베이스 인스턴스가 포함됩니다. 애플리케이션을 실제로 사용 시작하려면 Java 애플리케이션을 이 인프라에 배포해야 합니다. 다음 단계는 그 과정을 안내합니다.
 
@@ -48,7 +48,7 @@ curl -s https://raw.githubusercontent.com/shkim4u/aws-saas-factory-serverless-wo
 
 이 파이프라인이 성공하면 이 워크샵의 미리 프로비저닝된 인프라에 모놀리식 애플리케이션을을 배포하게 됩니다. 목록에서 파이프라인을 선택하면 파이프라인의 실행 상태를 볼 수 있습니다.
 
-<b>Step 4</b> – 코드가 배포되는 동안 애플리케이션을 호스팅 할 인프라를 살펴 보겠습니다. 모놀리식 애플리케이션을 위해 미리 프로비저닝 된 아키텍처는 의도적으로 AWS 또는 온프레미스에 있을 수 있는 것과 유사하게 만들었습니다. 이 모놀리식 솔루션에서는 하나의 데이터베이스와 통신하는 하나의 컴퓨팅 계층이 있습니다. Auto Scaling Group의 다중 AZ로 구성된 EC2 클러스터에 이를 배포했습니다. 현재 인스턴스를 확인하려면 AWS 콘솔에서 EC2 서비스로 이동한 다음 왼쪽의 탐색 창에서 <b>Auto Scaling Group</b>을 선택하십시오 (메뉴 항목을 찾으려면 스크롤해야 할 수도 있음). 그러면 Lab 1 용 그룹을 포함하여 프로비저닝 된 Auto Scaling Group 목록이 표시됩니다. 이 Auto Scaling Group의 확인란 을 선택하십시오. 페이지 하단의 세부 정보에서 <b>Instances</b> 탭을 선택하여 오토 스켈일링 그룹의 EC2 인스턴스를 살펴봅니다. 화면은 다음과 같이 나타납니다:
+<b>Step 4</b> – 코드가 배포되는 동안 애플리케이션을 호스팅 할 인프라를 살펴 보겠습니다. 모놀리식 애플리케이션을 위해 미리 프로비저닝 된 아키텍처는 의도적으로 AWS 또는 온프레미스에 있을 수 있는 것과 유사하게 만들었습니다. 이 모놀리식 솔루션에서는 하나의 데이터베이스와 통신하는 하나의 컴퓨팅 계층이 있습니다. Auto Scaling Group의 다중 AZ로 구성된 EC2 클러스터에 이를 배포했습니다. 현재 인스턴스를 확인하려면 AWS 콘솔에서 EC2 서비스로 이동한 다음 왼쪽의 탐색 창에서 <b>Auto Scaling Group</b>을 선택하십시오 (메뉴 항목을 찾으려면 스크롤해야 할 수도 있음). 그러면 Lab 1 용 그룹을 포함하여 프로비저닝 된 Auto Scaling Group 목록이 표시됩니다. 이 Auto Scaling Group의 확인란 을 선택하십시오. 페이지 하단의 세부 정보에서 <b>Instances</b> 탭을 선택하여 오토 스케일링 그룹의 EC2 인스턴스를 살펴봅니다. 화면은 다음과 같이 나타납니다:
 
 <p align="center"><img src="../images/lab1/AutoScalingGroup.png" alt="Code Pipeline"/></p>
 
@@ -80,14 +80,14 @@ curl -s https://raw.githubusercontent.com/shkim4u/aws-saas-factory-serverless-wo
 
 <p align="center"><img src="../images/lab1/LoginPage.png" alt="Login Page"/></p>
 
-실습을 위해 이 워크샵을 프로비저닝 하는 과정에서 미리 user account를 생성했습니다. 다음의 크레덴셜 정보를 통해 로그인할 수 있습니다.
+실습을 위해 이 워크샵을 프로비저닝 하는 과정에서 미리 user account를 생성했습니다. 다음의 인증 정보를 통해 로그인할 수 있습니다.
 
 ```
 Email address: monolith_user@example.com
 Password: Monolith123
 ```
 
-<b>Step 10</b> – 애플리케이션에 들어가보면 매우 기본적인 기능만 있음을 알 수 있습니다. 즉, 애플리케이션은 의도적으로 단순하게 만들어져 있습니다. 왜냐하면 실습의 목표는 마이그레이션 프로세스에 더 집중하기 때문입니다. 이 애플리케이션은 이커머스 판매자의 플랫폼에서 볼 수 있는 기능을 담고 있습니다. 판매자는 제품 카탈로그를 관리하고 가상의 상점에서 고객이 주문한 주문을 볼 수 있습니다. 우리는 가짜 쇼핑 사이트를 현재 갖고 있지 않기 때문에 주문 데이터를 입력하는 간단한 양식을 통해 실습을 진행할 예정입니다. 시스템의 비즈니스 로직은 기본 상태 정보를 볼 수있는 대시보드와 함께 제품 및 주문에 대한 표준 CRUD (Create, Read, Update and Delete) 작업이 가능하도록 되어 있습니다.
+<b>Step 10</b> – 애플리케이션에 들어가보면 매우 기본적인 기능만 있음을 알 수 있습니다. 즉, 애플리케이션은 의도적으로 단순하게 만들어져 있습니다. 왜냐하면 실습의 목표는 마이그레이션 프로세스에 더 집중하기 때문입니다. 이 애플리케이션은 이커머스 판매자의 플랫폼에서 볼 수 있는 기능을 담고 있습니다. 판매자는 제품 카탈로그를 관리하고 가상의 상점에서 고객이 주문한 주문을 볼 수 있습니다. 우리는 주문 데이터를 입력하는 간단한 양식을 통해 실습을 진행할 예정입니다. 시스템의 비즈니스 로직은 기본 상태 정보를 볼 수있는 대시보드와 함께 제품 및 주문에 대한 표준 CRUD (Create, Read, Update and Delete) 작업이 가능하도록 되어 있습니다.
 
 제품을 추가하여 시작해 보겠습니다. 페이지 상단의 탐색 옵션에서 다음과 같이 <b>Products</b>을 선택하십시오.
 
@@ -99,7 +99,7 @@ Password: Monolith123
 
 샘플 제품의 데이터를 채우고 <b>Add Product</b> 버튼을 클릭하여 저장하십시오. 이 과정을 몇 차례 반복하여 시스템에 몇 가지 추가 제품을 추가하십시오.
 
-<b>Step 11</b> – 이제 이 모놀리식 솔루션의 기본 코드를 살펴 보겠습니다. 우리는 실습 과정에서 모노리스 코드에 너무 많은 시간을 할애 하지는 않지만, 애플리케이션에 대한 좀 더 많은 컨텍스트와 세부 사항을 살펴 보는것 역시 도움이될 것 입니다. 이 솔루션은 Java로 빌드 되었지만 여기서 개념은 대부분의 모놀리식 애플리케이션에서 나타나는 패턴과 유사합니다.
+<b>Step 11</b> – 이제 이 모놀리식 솔루션의 기본 코드를 살펴 보겠습니다. 우리는 실습 과정에서 모노리스 코드에 너무 많은 시간을 할애 하지는 않지만, 애플리케이션에 대한 좀 더 많은 컨텍스트와 세부 사항을 살펴 보는것 역시 도움이 될 것 입니다. 이 솔루션은 Java로 빌드 되었지만 여기서 개념은 대부분의 모놀리식 애플리케이션에서 나타나는 패턴과 유사합니다.
 
 코드를 탐색하려면 먼저 AWS 콘솔에서 Cloud9 서비스를 다시 열어야 합니다. Cloud9를 열면 환경 중 하나로 나열된 <b>Serverless SaaS Workshop IDE</b>를 선택하십시오. <b>Open IDE</b> 버튼을 선택하여이 환경을 여십시오.
 
@@ -150,13 +150,14 @@ public Order getOrder(Integer orderId) throws Exception {
 
 <p align="center"><img src="../images/lab1/DeleteConfirm.png" alt="Confirm Delete Product"/></p>
 
-<b>Delete Product</b> 버튼을 클릭 합니다. 이런! 404 에러가 발생할 겁니다. 왜 그럴까요?
+<b>Delete Product</b> 버튼을 클릭 합니다.<br>
+404 에러가 발생할 것입니다. 왜 그럴까요?
 
 <p align="center"><img src="../images/lab1/DeleteError.png" alt="Delete 404 Error"/></p>
 
-<b>Step 14</b> – MVC 모델의 "Controller"부분을 조사하여 삭제 요청이 작동하지 않는 이유를 확인하여 문제를 해결해 보겠습니다. Cloud9 서비스로 이동하여이 워크샵의 IDE를 엽니다. 왼쪽에 나타나는 소스 트리를 사용하여 <b>lab1/server/src/main/java</b> 폴더로 이동하십시오. 중첩 된 폴더 내에서 (Java의 패키지 이름 지정 코드 구성에 해당) <b>controller</b> 폴더를 여십시오. 모노리스 용으로 구현된 컨트롤러 목록이 표시됩니다. <b>ProductsController.java </b> 파일을 두 번 클릭하여 이 파일의 편집기를 여십시오.
+<b>Step 14</b> – MVC 모델의 "Controller"부분을 조사하여 삭제 요청이 작동하지 않는 이유를 확인하여 문제를 해결해 보겠습니다. Cloud9 서비스로 이동하여 이 워크샵의 IDE를 엽니다. 왼쪽에 나타나는 소스 트리를 사용하여 <b>lab1/server/src/main/java</b> 폴더로 이동하십시오. 중첩 된 폴더 내에서 (Java의 패키지 이름 지정 코드 구성에 해당) <b>controller</b> 폴더를 여십시오. 모노리스 용으로 구현된 컨트롤러 목록이 표시됩니다. <b>ProductsController.java </b> 파일을 두 번 클릭하여 이 파일의 편집기를 여십시오.
 
-이 파일에서 Java 클래스의 <b>updateProduct()</b> 및 <b>deleteProduct()</b> 메소드로 이동합니다. 이 두 메소드는이 클래스의 다양한 메소드에 의해 처리 될 HTTP 호출의 시작점을 나타냅니다. 이러한 메소드 본문 내에서 비즈니스 로직 기능의 실제 구현 인 ProductService를 호출하고 있음을 알 수 있습니다. 이 두 가지 메소드를 자세히 살펴보고 제품 삭제시 에러를 만드는 부분을 살펴보십시오. 두 가지 메소드는 다음과 같습니다.
+이 파일에서 Java 클래스의 <b>updateProduct()</b> 및 <b>deleteProduct()</b> 메소드로 이동합니다. 이 두 메소드는이 클래스의 다양한 메소드에 의해 처리 될 HTTP 호출의 시작점을 나타냅니다. 이러한 메소드 본문 내에서 비즈니스 로직 기능의 실제 구현 인 ProductService를 호출하고 있음을 알 수 있습니다. 이 두 가지 메소드를 자세히 살펴보고 제품 삭제 시 에러를 만드는 부분을 살펴보십시오. 두 가지 메소드는 다음과 같습니다.
 
 ```java
 @PostMapping("/updateProduct")
@@ -202,7 +203,7 @@ git push
 
 <b>Step 17</b> – 이제 변경 사항이 적용되었는지 확인하겠습니다. 위에서 얻은 URL을 사용하여 애플리케이션을 열고 제공된 자격 증명을 사용하여 로그인하십시오. 이제 "Products" 메뉴 항목을 선택하고 행의 맨 오른쪽에있는 "Del" 버튼을 선택하여 카탈로그에서 _680425 Swift iOS SaaS Identity_ 제품을 다시 삭제하십시오. 변경 사항이 올바르게 적용되었고 새 버전이 배치를 완료되었다면 이제 제품이 성공적으로 삭제될 겁니다.
 
-<b>Step 18</b> – 마지막 단계로 이 애플리케이션의 웹 클라이언트를 간단히 살펴보겠습니다. 실습의 목적상 코드를 깊이 살펴 보지 않지만 모놀리스가 실제로 서버에서 솔루션의 모든 HTML을 렌더링하고 제공한다는 사실은 알아두면 좋겠습니다. 이 솔루션은 고전적인 MVC 패턴을 따릅니다. 우리는 애플리케이션의 UI 뷰를 나타내기 위해 공통 Java 템플릿 라이브러리를 사용하고 있습니다. 각 요청이 <b>C</b>ontroller에 들어오면 요청이 처리되고 <b>M</b>odel 객체가 채워지면 이를 HTML로 렌더링하기위해 <b>V</b>iew에 페이지 변수로써 전달됩니다. <b>M</b>odel을 조작한 후 <b>C</b>ontroller는 템플릿 라이브러리를 호출 합니다. 이때 이 템플릿 라이브러리는 HTML <b>V</b>iew를 렌더하는 템플릿에 이 모델객체를 바인딩 합니다.
+<b>Step 18</b> – 마지막 단계로 이 애플리케이션의 웹 클라이언트를 간단히 살펴보겠습니다. 실습의 목적상 코드를 깊이 살펴 보지 않지만 모놀리스가 실제로 서버에서 솔루션의 모든 HTML을 렌더링하고 제공한다는 사실은 알아두면 좋겠습니다. 이 솔루션은 고전적인 MVC 패턴을 따릅니다. 우리는 애플리케이션의 UI 뷰를 나타내기 위해 공통 Java 템플릿 라이브러리를 사용하고 있습니다. 각 요청이 <b>C</b>ontroller에 들어오면 요청이 처리되고 <b>M</b>odel 객체가 채워지면 이를 HTML로 렌더링하기위해 <b>V</b>iew에 페이지 변수로써 전달됩니다. <b>M</b>odel을 조작한 후 <b>C</b>ontroller는 템플릿 라이브러리를 호출 합니다. 이때 이 템플릿 라이브러리는 HTML <b>V</b>iew를 렌더하는 템플릿에 이 모델 객체를 바인딩 합니다.
 
 MVC 프레임워크에 대한 미묘한 차이는 본 실습 에서 중요한 부분은 아닙니다. 여기서 핵심은 컨트롤러가 Java 객체를 사용하여 데이터를 나타내고 이를 템플릿에 바인딩하기 위해 템플릿 프레임 워크를 서버 측에서 사용한다는 것입니다. 샘플 UI 템플릿을 보려면 콘솔에서 Cloud9 서비스로 이동하여 워크샵을 위한 IDE를 엽니다. IDE의 왼쪽 네비게이션 창에있는 소스 트리에서 <b>lab1/server/src/main/resources</b> 폴더를 여십시오. 그런 다음 <b>templates</b> 폴더를 열고 파일 이름을 두 번 클릭하여 <b>products.html</b> 템플릿 파일을 여십시오. 다음은 <b>products.html</b> UI 템플릿 파일의 코드 일부로, 모델이 템플릿에 어떻게 바인딩되는지 보여줍니다.
 
@@ -210,7 +211,7 @@ MVC 프레임워크에 대한 미묘한 차이는 본 실습 에서 중요한 �
 
 이 코드는 화면에 제품 목록을 채우는데 사용되는 템플릿을 나타냅니다. <b>&lt;tr&gt;</b> 테이블 행 태그를 감싸는 <b>for-each</b> 루프가 있고 <b>&lt;td&gt;</b>가 있음을 알 수 있습니다. 테이블 셀의 데이터 태그에는 Product 모델 객체에 대한 참조가 포함됩니다. 예를 들어 첫 번째 열은 <b>\${product.sku}</b> 구문을 사용하여 제품 SKU로 구별됩니다. 여기서 결론은 여러분의 요청에 대한 결과로써 HTML과 모델 객체의 바인딩된 HTML을 제공 한다는 것입니다.
 
-## Sequence Diagram
+## 시퀀스 다이어그램
 
 <details>
 <summary>Basic Flow</summary>
@@ -222,9 +223,9 @@ MVC 프레임워크에 대한 미묘한 차이는 본 실습 에서 중요한 �
 https://sequencediagram.org/index.html#initialData=A4QwTgLglgxloDsIAICqBnApmAUKSs8ISyAQmAPYDuWu+0ciKAggDKl7gNEkDKwYKAgDmyXphgBXQRACenAo2IoAKgAtZAW0wAbTCABmC7k2QBhCkko69dLoVPiwAN1iZjD5cgAiICh6USACVvDhwMbABaAD5yaloALnQoYQQhHDiaKOi2UgSABQB5XhVkAHodCmF03Jj+QRExCWkoOQSceqFRcSkZWTqBLqbe1tkE5GZJCDVMJFgQaEsOwcaelrlImNz22pjMxKDMdGBLLGQqVrVkAB0ELHRky2QYCgoAayh3fezvsATJiAUTQLeY2WTIdAgZyYW73R4IZ6vD5HZAZShZMAxCJ-VHYvboxJYcAwK4CCgAE0kMAgsP0YBJyAoYHJ2GQADoOWj4j8Cdh-lMgSCYCAwcgQOTybSHlAni93p9kIDkDNxayuRituwEgBxACipTKZMp1PQNwQeoNTJZYHQOFq0U6q2afXaju6ztGAwa7pGbQmUzUTKgAC8QUs3cN1v1ohYrBQbHzUbGINZbHVsK4YJhXRm3DFfBR2gWYiE8jhS5togWi35K05M9mOrms5Xk6m+Tg2-G0zF1FpdPoDOMALIU3Q4PvaPSGXsaKeDkcgYDALrLb2RvoAHk2k4Hhh27G3kQjaxddvYld+CQAEiph6xkIdjqd3Nij1egA
 -->
 
-## Review
+## 리뷰
 
-Lab 1의 목표는 기존 모놀리식 애플리케이션 및 아키텍처 기본 사항을 살펴 보는 것이었습니다. 이를 위해 기본 아키텍처, 애플리케이션 코드를 검토하고 해당 코드를 인프라에 배포했습니다. 그런 다음 모노리식 애플리케이션을 실행하여 코드 동작 흐름을 살펴 봤습니다. 또한 이 솔루션을 구축하는 데 사용되는 클래식 MVC 모델을 확인 하기 위해 모놀리식의 기본 코드를 살펴보고 서비스 및 컨트롤러를 통한 서비스 연결이 어떻게 되는지 살펴보는데 중점을 두었습니다. 마지막으로 강조 하고 싶은 부분은 Lab 1에서 만든 환경에는 아직 테넌트에 대한 컨셉이 인프라와 애플리케이션에 전혀 반영되지 않았다는 것입니다.
+Lab 1의 목표는 기존 모놀리식 애플리케이션 및 아키텍처 기본 사항을 살펴 보는 것이었습니다. 이를 위해 기본 아키텍처, 애플리케이션 코드를 검토하고 해당 코드를 인프라에 배포했습니다. 그런 다음 모노리식 애플리케이션을 실행하여 코드 동작 흐름을 살펴 봤습니다. 또한 이 솔루션을 구축하는 데 사용되는 클래식 MVC 모델을 확인 하기 위해 모놀리식의 기본 코드를 살펴보고 서비스 및 컨트롤러를 통한 서비스 연결이 어떻게 되는지 살펴보는데 중점을 두었습니다. 마지막으로 강조하고 싶은 부분은 Lab 1에서 만든 환경에는 아직 테넌트에 대한 컨셉이 인프라와 애플리케이션에 전혀 반영되지 않았다는 것입니다.
 
 이상 Lab 1을 마칩니다.
 
