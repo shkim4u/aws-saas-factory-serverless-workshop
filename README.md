@@ -15,7 +15,7 @@
 
 ## How do I start?
 1. 우선 아래 URL에 있는 파일들을 자신의 로컬 컴퓨터로 다운로드 합니다. 이들 파일들은 Lab의 기본적인 구성을 배포하고 필요한 파일들을 자신의 S3로 복사하거나 정리하는데 사용됩니다 (Bootstrapping). 
-   1. CopyS3Object.jar: https://github.com/shkim4u/aws-saas-factory-serverless-workshop/raw/main/resources/(my)-saas-workshop-bucket/CopyS3Bucket.jar
+   1. CopyS3Object.jar: https://github.com/shkim4u/aws-saas-factory-serverless-workshop/raw/main/resources/(my)-saas-workshop-bucket/CopyS3Objects.jar
    2. ClearS3Bucket.jar: https://github.com/shkim4u/aws-saas-factory-serverless-workshop/raw/main/resources/(my)-saas-workshop-bucket/ClearS3Bucket.jar
    3. workshop.template: https://github.com/shkim4u/aws-saas-factory-serverless-workshop/raw/main/resources/(my)-saas-workshop-bucket/workshop.template
 2. 자신의 AWS 계정 (이벤트 엔진)에서 적당한, 그렇지만 글로벌 전역적으로 유일한 이름을 가진 S3 버킷을 생성하고 여기에 위에서 다운로드 받은 파일을 업로드합니다. CloudFormation 템플릿인 workshop.template 파일은 굳이 업로드하지 않아도 되지만 CloudFormation을 생성하는 다른 방법을 제공하므로 함께 업로드하도록 하겠습니다.
