@@ -1,13 +1,13 @@
-#!/bin/bash
+ㅠ#!/bin/bash
 
 # Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this
 # software and associated documentation files (the "Software"), to deal in the Software
 # without restriction, including without limitation the rights to use, copy, modify,
 # merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 # INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
 # PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
@@ -16,13 +16,14 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Supported regions (Cloud9 limitation)
-# us-east-1      N Virginia 
+# us-east-1      N Virginia
 # us-east-2      Ohio
 # us-west-2      Oregon
 # eu-west-1      Ireland
 # eu-central-1   Frankfurt
 # ap-southeast-1 Singapore
 # ap-northeast-1 Tokyo
+# ap-northeast-2 Seoul
 
 
 #Bootstrap a Cloud9 IDE instance for Java 8 development
