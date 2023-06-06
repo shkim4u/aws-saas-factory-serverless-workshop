@@ -37,7 +37,7 @@ Cloud9 IDE는 최신 IDE에서 기대할 수 있는 모든 기능들을 갖고 �
 <b>Step 2</b> – 이제 Cloud9을 통해 소스 코드를 가져 와서 애플리케이션을 빌드 및 배포할 수 있습니다. 먼저 일부 라이브러리를 설치하고 사용할 수 있도록 코드베이스를 설정하여 Cloud9 인스턴스를 세팅해야 합니다. 이 워크샵은 AWS 개발자 도구인 CodeCommit, CodeBuild, CodeDeploy 및 CodePipeline을 사용하여 CI/CD 파이프라인을 미리 구성했습니다. 아래 스크립트는 워크샵 소스 코드 사본을 다운로드하고 이 워크샵 중에 변경 사항을 적용할 때 사용할 로컬 CodeCommit 저장소를 만들겁니다. 이 저장소에 변경이 일어나면 빌드 파이프라인이 애플리케이션을 빌드하고 배포하도록 실행될 겁니다. cURL 명령으로 부트스트랩 스크립트를 실행해 봅시다. Cloud9의 하단 창에 있는 명령 행 프롬프트에 커서를 놓고 다음 명령을 실행하십시오:
 
 ```
-curl -s https://raw.githubusercontent.com/aws-samples/aws-saas-factory-serverless-workshop/master/resources/bootstrap.sh | bash
+curl -s https://raw.githubusercontent.com/shkim4u/aws-saas-factory-serverless-workshop/master/resources/bootstrap.sh | bash
 ```
 
 이 스크립트 실행이 완료되면, 여러분들은 이제 워크샵을 위해 준비한 애플리케이션을 사용하는데 필요한 모든 것들을 준비하게 됩니다.
